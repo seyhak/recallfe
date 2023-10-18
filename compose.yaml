@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  fe:
+    image: node:18-alpine
+    command: sh -c "yarn install && yarn start"
+    working_dir: /app
+    volumes:
+      - ./:/recall/app
+    ports:
+      - "3000:3000"
