@@ -8,11 +8,7 @@ import ListItemText from "@mui/material/ListItemText"
 import { Divider } from "@mui/material"
 import { NoItemPicked } from "./components/NoItemPicked/NoItemPicked"
 import { ItemDetails } from "./components/ItemDetails/ItemDetails"
-
-export type Item = {
-  id: number
-  name: string
-} | null
+import { Item } from "types/item.types"
 
 const testListGen = () =>
   Array(100)
