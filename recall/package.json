@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.14",
     "@mui/material": "^5.14.14",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
@@ -18,6 +19,7 @@
     "prettier": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.17.0",
     "react-scripts": "5.0.1",
     "sass": "^1.69.4",
     "typescript": "^4.4.2",
@@ -35,6 +37,14 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
+    "rules": {
+      "quotes": [
+        "warn",
+        "double"
+      ],
+      "semi": ["warn", "never"],
+      "indent": ["warn", 2]
+    },
     "extends": [
       "react-app",
       "react-app/jest"

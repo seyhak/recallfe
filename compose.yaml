@@ -5,6 +5,6 @@ services:
     command: sh -c "yarn install && yarn start"
     working_dir: /app
     volumes:
-      - ./:/recall/app
+      - ./recall/src:/app/src
     ports:
       - "3000:3000"
