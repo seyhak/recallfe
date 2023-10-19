@@ -14,39 +14,46 @@ export type Item = {
   name: string
 } | null
 
-const testListGen = () => Array(100).fill(1).map((_, i) => i+1).map((x) => {
-  const randName = Math.random().toString(15).slice(2)
-  return (
-    { id: x, name: randName} as Item
-  )
-}) as Item[]
+const testListGen = () =>
+  Array(100)
+    .fill(1)
+    .map((_, i) => i + 1)
+    .map((x) => {
+      const randName = Math.random().toString(15).slice(2)
+      return { id: x, name: randName } as Item
+    }) as Item[]
 
 export const Catalogue = () => {
   const [selectedItem, setSelectedItem] = useState<Item>(null)
   const testList = useMemo<Array<Item>>(() => testListGen(), [])
-  const onItemClick = useCallback((newSelectedItem: Item) => {
-    console.log(newSelectedItem)
-    setSelectedItem(newSelectedItem)
-  }, [setSelectedItem])
+  const onItemClick = useCallback(
+    (newSelectedItem: Item) => {
+      console.log(newSelectedItem)
+      setSelectedItem(newSelectedItem)
+    },
+    [setSelectedItem],
+  )
   console.log(testList)
 
   return (
     <Box className="catalogue-wrapper">
       <List className="list">
         {testList.map((listItem) => {
-          return(
+          return (
             <ListItem key={listItem?.id} dense>
-              <ListItemButton onClick={() => onItemClick(listItem)} selected={selectedItem?.id === listItem?.id} >
+              <ListItemButton
+                onClick={() => onItemClick(listItem)}
+                selected={selectedItem?.id === listItem?.id}
+              >
                 <ListItemText primary={listItem?.name} />
               </ListItemButton>
             </ListItem>
           )
-        })
-        }
+        })}
       </List>
       <Divider orientation="vertical" className="line" />
       <Box className="detail-wrapper">
-        {selectedItem ? <ItemDetails item={selectedItem}/> : <NoItemPicked />}
+        {selectedItem ? <ItemDetails item={selectedItem} /> : <NoItemPicked />}
       </Box>
     </Box>
   )

@@ -14,9 +14,6 @@
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^15.0.1",
-    "prettier": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.17.0",
@@ -27,10 +24,11 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write"
+      "yarn prettier --write"
     ]
   },
   "scripts": {
+    "prepare": "cd .. && husky install recall/.husky",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -42,8 +40,14 @@
         "warn",
         "double"
       ],
-      "semi": ["warn", "never"],
-      "indent": ["warn", 2]
+      "semi": [
+        "warn",
+        "never"
+      ],
+      "indent": [
+        "warn",
+        2
+      ]
     },
     "extends": [
       "react-app",
@@ -66,5 +70,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
+    "prettier": "^3.0.3"
   }
 }
