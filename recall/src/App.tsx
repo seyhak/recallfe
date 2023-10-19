@@ -6,11 +6,7 @@ import { Box } from "@mui/system"
 import Search from "./views/Search/Search"
 import { Routes, Route } from "react-router-dom"
 import { Catalogue } from "./views/Catalogue/Catalogue"
-
-enum ViewsPaths {
-  Search = "/",
-  Catalogue = "/list",
-}
+import { ViewsPaths } from "types/routes.types"
 
 const App = () => {
   const location = useLocation()
